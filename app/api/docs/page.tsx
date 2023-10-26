@@ -13,9 +13,11 @@ const IndexPage: FC = async () => {
 	const spec = await getApiDocs();
 
 	return (
-		<section className="mx-auto">
-			<ReactSwagger spec={spec} />
-		</section>
+		<body className="dark:bg-white">
+			<section className="mx-auto">
+				<ReactSwagger spec={spec} />
+			</section>
+		</body>
 	);
 };
 
