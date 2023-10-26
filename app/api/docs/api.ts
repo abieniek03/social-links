@@ -57,7 +57,7 @@
  *       500:
  *         description: Internal server error.
  *
- * /api/auth/verify:
+ * /api/auth/user:
  *   get:
  *     tags:
  *      - Auth

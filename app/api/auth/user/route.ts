@@ -18,7 +18,10 @@ export async function GET(request: NextRequest) {
 				id: (data as { id: string }).id,
 			},
 		});
-		return NextResponse.json({ verify: true, user: { id: user?.id, email: user?.email } });
+		return NextResponse.json({
+			verify: true,
+			user: { id: user?.id, fullName: `${user?.firstName} ${user?.lastName}` },
+		});
 	});
 
 	return verification;

@@ -2,7 +2,7 @@ import { IReducer } from "@/store/common/common";
 
 interface IUserData {
 	id: number | null;
-	email: string | null;
+	fullName: string | null;
 }
 
 export interface IUser {
