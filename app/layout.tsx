@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 
-import ThemeProvider from "@/Providers/ThemeProvider";
+import ThemeProvider from "@/providers/ThemeProvider";
 
 const font = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 

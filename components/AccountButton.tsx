@@ -27,7 +27,7 @@ const AccountButton: FC = () => {
 								<Button path="/logowanie" variant="secondary" size="sm" label="Zaloguj się" />
 								<hr className="mt-1.5" />
 								<p>Nie masz jeszcze konta?</p>
-								<Button path="/logowanie" variant="primary" size="sm" label="Zarejestuj się" />
+								<Button path="/rejestracja" variant="primary" size="sm" label="Zarejestuj się" />
 							</>
 						)}
 					</div>
