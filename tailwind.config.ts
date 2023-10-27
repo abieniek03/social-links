@@ -10,10 +10,12 @@ const config: Config = {
 		extend: {
 			colors: {
 				primary: "#10b981",
-				"light-hover": "#f5f5f5",
 				"primary-hover": "#09a870",
+				light: "#d1d5db",
+				"light-hover": "#f5f5f5",
 				dark: "#1f2937",
 				"dark-hover": "#2f3a48",
+				error: "#f87171",
 			},
 		},
 	},

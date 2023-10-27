@@ -1,12 +1,28 @@
 "use client";
 
 import { FC, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+
 import Button from "./Button";
+
+import defaultAvatar from "@/assets/default-avatar.png";
+
+import { useAppSelector } from "@/store/store";
+
+import axios from "axios";
 
 const AccountButton: FC = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 
-	const isLogined = !true;
+	const store = useAppSelector((store) => store);
+
+	const isVerified = store.user.details?.verify || false;
+	const user = store.user.details?.user;
+
+	const handleLogout = () => {
+		axios.get("/api/auth/logout").then(() => (window.location.href = "/"));
+	};
 
 	return (
 		<div className="relative">
@@ -14,12 +30,15 @@ const AccountButton: FC = () => {
 			{isOpen && (
 				<div className="absolute w-64 right-0 p-3 rounded-md border text-sm border-light-hover dark:border-dark-hover bg-white dark:bg-dark top-10">
 					<div className="text-center flex flex-col gap-2">
-						{isLogined ? (
+						{isVerified ? (
 							<>
-								<p>Nazwa użytkownika</p>
+								<Link href="/profil" className="flex justify-center gap-2">
+									<Image src={defaultAvatar} alt="" className="h-7 w-7" />
+									<span className="font-bold text-lg">{user?.fullName}</span>
+								</Link>
 								<hr className="mt-1.5" />
 								<Button path="/ustawienia" variant="secondary" size="sm" label="Ustawienia" />
-								<Button variant="primary" size="sm" label="Wyloguj się" />
+								<Button variant="primary" size="sm" label="Wyloguj się" onClick={handleLogout} />
 							</>
 						) : (
 							<>
@@ -27,7 +46,7 @@ const AccountButton: FC = () => {
 								<Button path="/logowanie" variant="secondary" size="sm" label="Zaloguj się" />
 								<hr className="mt-1.5" />
 								<p>Nie masz jeszcze konta?</p>
-								<Button path="/logowanie" variant="primary" size="sm" label="Zarejestuj się" />
+								<Button path="/rejestracja" variant="primary" size="sm" label="Zarejestuj się" />
 							</>
 						)}
 					</div>

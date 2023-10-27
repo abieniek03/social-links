@@ -6,7 +6,7 @@ import SwitchThemeButton from "./SwitchThemeButton";
 
 const Navbar: FC = () => {
 	return (
-		<nav className=" border-b border-light-hover dark:border-dark-hover">
+		<nav className="border-b border-light-hover dark:border-dark-hover">
 			<div className="max-w-screen-xl mx-auto p-3 flex justify-between items-center">
 				<Logo />
 				<div className="flex items-center gap-4">
