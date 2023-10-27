@@ -24,11 +24,11 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
 	return (
 		<html lang="pl">
 			<body className={`${font.className} bg-white text-dark dark:bg-dark dark:text-white`}>
-				<ThemeProvider>
-					<ReduxProvider>
+				<ReduxProvider>
+					<ThemeProvider>
 						<Authentication token={token}>{children}</Authentication>
-					</ReduxProvider>
-				</ThemeProvider>
+					</ThemeProvider>
+				</ReduxProvider>
 			</body>
 		</html>
 	);
