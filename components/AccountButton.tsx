@@ -1,7 +1,12 @@
 "use client";
 
 import { FC, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+
 import Button from "./Button";
+
+import defaultAvatar from "@/assets/default-avatar.png";
 
 import { useAppSelector } from "@/store/store";
 
@@ -27,7 +32,10 @@ const AccountButton: FC = () => {
 					<div className="text-center flex flex-col gap-2">
 						{isVerified ? (
 							<>
-								<span className="font-bold text-lg">{user?.fullName}</span>
+								<Link href="/profil" className="flex justify-center gap-2">
+									<Image src={defaultAvatar} alt="" className="h-7 w-7" />
+									<span className="font-bold text-lg">{user?.fullName}</span>
+								</Link>
 								<hr className="mt-1.5" />
 								<Button path="/ustawienia" variant="secondary" size="sm" label="Ustawienia" />
 								<Button variant="primary" size="sm" label="Wyloguj się" onClick={handleLogout} />

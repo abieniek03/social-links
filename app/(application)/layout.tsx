@@ -1,4 +1,5 @@
 import { FC, ReactNode } from "react";
+
 import Navbar from "@/components/Navbar";
 
 const ApplicationLayout: FC<{ children: ReactNode }> = ({ children }) => {
