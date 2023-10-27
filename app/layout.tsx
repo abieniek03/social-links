@@ -7,8 +7,8 @@ import "./globals.css";
 import { cookies } from "next/headers";
 
 import Authentication from "@/hoc/Authentication";
-import ThemeProvider from "@/providers/ThemeProvider";
-import ReduxProvider from "@/providers/ReduxProvider";
+import ThemeProvider from "../providers/ThemeProvider";
+import ReduxProvider from "../providers/ReduxProvider";
 
 const font = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 
