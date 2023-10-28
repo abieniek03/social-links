@@ -32,11 +32,9 @@ const LoginPage: FC = () => {
 
 		try {
 			setLoading(true);
-			const response = await axios.post("/api/auth/login", data);
-			console.log(response);
+			await axios.post("/api/auth/login", data);
 			window.location.href = "/";
 		} catch (error: any) {
-			console.error(error);
 			if (error.response.data.message) {
 				setErrorAlert("Nie poprawne dane logowania.");
 			} else {
