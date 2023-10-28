@@ -55,7 +55,6 @@ const LoginPage: FC = () => {
 			</div>
 			<div className="w-full max-w-sm">
 				{errorAlert !== "" && <Alert type="error" info={errorAlert} />}
-				<Alert type="info" info="Testowy alert." />
 				<FormProvider {...form}>
 					<form className="w-full max-w-sm" onSubmit={form.handleSubmit(handleLogin)}>
 						<FormInput type="email" id="email" label="Adres mailowy" />
