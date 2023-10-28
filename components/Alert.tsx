@@ -3,9 +3,11 @@ interface IAlert {
 	info: string;
 }
 
-const stylesError = "text-red-800 border-red-300 bg-red-50";
-const stylesInfo = "text-blue-800 border border-blue-300 bg-blue-50";
-const stylesSuccess = "text-green-800 border border-green-300 bg-green-50";
+const stylesError = "text-red-800 border-red-300 bg-red-50 dark:bg-red-950 dark:border-red-800 dark:text-red-400";
+const stylesInfo =
+	"text-blue-800 border border-blue-300 bg-blue-50 dark:bg-sky-950 dark:border-sky-800 dark:text-sky-400";
+const stylesSuccess =
+	"text-green-800 border border-green-300 bg-green-50 dark:bg-green-950 dark:border-green-800 dark:text-green-400";
 
 export default function Alert({ type, info }: IAlert) {
 	return (
