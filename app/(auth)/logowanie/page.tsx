@@ -38,6 +38,8 @@ const LoginPage: FC = () => {
 			setLoading(false);
 			if (error.response.data.message) {
 				setErrorAlert("Nie poprawne dane logowania.");
+			} else {
+				setErrorAlert("Nie udało się zalogować.");
 			}
 		}
 	};
