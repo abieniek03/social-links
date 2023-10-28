@@ -36,12 +36,14 @@ const LoginPage: FC = () => {
 			console.log(response);
 			window.location.href = "/";
 		} catch (error: any) {
-			setLoading(false);
+			console.error(error);
 			if (error.response.data.message) {
 				setErrorAlert("Nie poprawne dane logowania.");
 			} else {
 				setErrorAlert("Nie udało się zalogować.");
 			}
+		} finally {
+			setLoading(false);
 		}
 	};
 
