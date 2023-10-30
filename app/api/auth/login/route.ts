@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
 			success: true,
 		});
 
-		generateAuthToken(response, user.id);
+		generateAuthToken(response, user.id, user.profileId);
 
 		return response;
 	} catch (error: any) {
