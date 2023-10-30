@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import { hashPassword } from "@/utils/hashPassword";
 import { generateAuthToken } from "@/utils/generateTokens";
+import generateProfileId from "@/utils/generateProfileId";
 
 const prisma = new PrismaClient();
 
@@ -17,6 +18,7 @@ export async function POST(request: NextRequest) {
 				lastName,
 				email,
 				hashedPassword,
+				profileId: await generateProfileId(firstName, lastName),
 			},
 		});
 
@@ -25,7 +27,7 @@ export async function POST(request: NextRequest) {
 			{ status: 201 }
 		);
 
-		generateAuthToken(response, createdUser.id);
+		generateAuthToken(response, createdUser.id, createdUser.profileId);
 
 		return response;
 	} catch (error: any) {

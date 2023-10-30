@@ -11,14 +11,24 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
+enum ACCOUNT_STATUS {
+  ACTIVE
+  INACTIVE
+  DELETED
+}
+
 model User {
-  id             String   @id @unique @default(uuid())
-  firstName      String
-  lastName       String
-  email          String   @unique
-  hashedPassword String
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  id                 String         @id @unique @default(uuid())
+  firstName          String
+  lastName           String
+  email              String         @unique
+  hashedPassword     String
+  accountStatus      ACCOUNT_STATUS @default(ACTIVE)
+  profileId          String         @unique
+  profileDescription String         @default("")
+  avatar             String         @default("https://i.imgur.com/HJGHL1q.jpg")
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
 
   @@map("users")
 }
