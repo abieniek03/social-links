@@ -6,7 +6,7 @@ import { generateAuthToken } from "@/utils/generateTokens";
 
 const prisma = new PrismaClient();
 
-export async function POST(request: NextRequest) {
+export const POST = async (request: NextRequest) => {
 	try {
 		const { email, password } = await request.json();
 
@@ -35,4 +35,4 @@ export async function POST(request: NextRequest) {
 	} catch (error: any) {
 		return NextResponse.json({ error: error.message, success: false }, { status: 500 });
 	}
-}
+};

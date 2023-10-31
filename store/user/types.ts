@@ -1,8 +1,10 @@
 import { IReducer } from "@/store/common/common";
 
 interface IUserData {
-	id: number | null;
-	fullName: string | null;
+	id: string;
+	avatar: string;
+	fullName: string;
+	profileId: string;
 }
 
 export interface IUser {

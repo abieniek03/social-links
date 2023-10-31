@@ -6,7 +6,7 @@ import generateProfileId from "@/utils/generateProfileId";
 
 const prisma = new PrismaClient();
 
-export async function POST(request: NextRequest) {
+export const POST = async (request: NextRequest) => {
 	const { firstName, lastName, email, password } = await request.json();
 
 	const hashedPassword = hashPassword(password);
@@ -39,4 +39,4 @@ export async function POST(request: NextRequest) {
 		}
 		return NextResponse.json({ error: error.message, success: false }, { status: 500 });
 	}
-}
+};
