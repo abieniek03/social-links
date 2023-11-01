@@ -3,7 +3,8 @@ import { IReducer } from "@/store/common/common";
 interface IUserData {
 	id: string;
 	avatar: string;
-	fullName: string;
+	firstName: string;
+	lastName: string;
 	profileId: string;
 }
 

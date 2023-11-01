@@ -28,15 +28,20 @@ const AccountButton: FC = () => {
 		<div className="relative">
 			<Button variant="primary" label="Moje konto" size="sm" onClick={() => setIsOpen(!isOpen)} />
 			{isOpen && (
-				<div className="absolute w-64 right-0 p-3 rounded-md border text-sm border-light-hover dark:border-dark-hover bg-white dark:bg-dark top-10">
-					<div className="text-center flex flex-col gap-2">
+				<div className="absolute z-10 w-64 top-10 right-0 p-3 rounded-md border text-sm border-light-hover dark:border-dark-hover bg-white dark:bg-dark ">
+					<div className="text-center flex flex-col gap-2.5">
 						{isVerified && user ? (
 							<>
-								<Link href={`/profil/${user.profileId}`} className="flex justify-center gap-2">
+								<Link
+									onClick={() => setIsOpen(!isOpen)}
+									href={`/profil/${user.profileId}`}
+									className="flex justify-center gap-2 cursor-pointer pb-2 border-b dark:border-dark-hover"
+								>
 									<Image src={user.avatar || ""} alt="" height={25} width={25} className="rounded-full" />
-									<span className="font-bold text-lg">{user.fullName}</span>
+									<span className="font-bold text-lg">
+										{user.firstName} {user.lastName}
+									</span>
 								</Link>
-								<hr className="mt-1.5" />
 								<Button path="/ustawienia" variant="secondary" size="sm" label="Ustawienia" />
 								<Button variant="primary" size="sm" label="Wyloguj się" onClick={handleLogout} />
 							</>

@@ -1,11 +1,11 @@
 "use client";
 
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { useAppDispatch } from "@/store/store";
 import { getUserData } from "@/store/user/thunks";
 
 interface IAuthentication {
-	children: React.ReactNode;
+	children: ReactNode;
 	token: String | undefined;
 }
 
