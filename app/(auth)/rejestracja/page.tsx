@@ -32,10 +32,9 @@ const RegisterPage: FC = () => {
 
 		try {
 			setLoading(true);
-			const response = await axios.post("/api/auth/register", data);
-			console.log(response);
+			await axios.post("/api/auth/register", data);
+			window.location.href = "/";
 		} catch (error: any) {
-			console.error(error);
 			if (error.response.status === 409) {
 				setErrorAlert("Istnieje już użytkownik zarejestrowany na podany adres mailowy.");
 			} else {
