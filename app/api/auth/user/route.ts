@@ -17,10 +17,16 @@ export async function GET(request: NextRequest) {
 			where: {
 				id: (data as { id: string }).id,
 			},
+			select: {
+				profileId: true,
+				avatar: true,
+				firstName: true,
+				lastName: true,
+			},
 		});
 		return NextResponse.json({
 			verify: true,
-			user: { id: user?.id, fullName: `${user?.firstName} ${user?.lastName}` },
+			user,
 		});
 	});
 
