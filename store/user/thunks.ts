@@ -11,7 +11,7 @@ export const getUserData = (token: string) => (dispatch: AppThunk) => {
 			method: "GET",
 			url: "/api/auth/user",
 			headers: {
-				Authorization: `Barer ${token}`,
+				Authorization: `Bearer ${token}`,
 			},
 		})
 			.then(async (response: AxiosResponse) => {

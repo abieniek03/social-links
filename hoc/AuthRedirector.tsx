@@ -1,12 +1,14 @@
 import { FC, ReactNode } from "react";
+
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 const AuthRedirector: FC<{ children: ReactNode }> = ({ children }) => {
 	const cookieStore = cookies();
+	const authToken = cookieStore.get("auth-token")?.value;
 
-	if (cookieStore.get("auth-token")) {
-		redirect("/panel");
+	if (authToken) {
+		redirect("/");
 	}
 
 	return <>{children}</>;

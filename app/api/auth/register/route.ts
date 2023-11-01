@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
+
 import { hashPassword } from "@/utils/hashPassword";
-import { generateAuthToken } from "@/utils/generateTokens";
-import generateProfileId from "@/utils/generateProfileId";
+import { generateAuthToken } from "@/utils/jwt";
+import { generateProfileId } from "@/utils/generateProfileId";
 
 const prisma = new PrismaClient();
 

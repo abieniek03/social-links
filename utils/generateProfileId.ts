@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const generateProfileId = async (firstName: string, lastName: string) => {
+export const generateProfileId = async (firstName: string, lastName: string) => {
 	let profileId = `${firstName.toLowerCase()}.${lastName.toLowerCase()}`;
 
 	const idNumber = (
@@ -17,5 +17,3 @@ const generateProfileId = async (firstName: string, lastName: string) => {
 
 	return idNumber > 2 ? (profileId += `.${idNumber + 1}`) : profileId;
 };
-
-export default generateProfileId;
