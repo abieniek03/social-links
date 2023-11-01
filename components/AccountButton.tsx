@@ -6,8 +6,6 @@ import Image from "next/image";
 
 import Button from "./Button";
 
-import defaultAvatar from "@/assets/default-avatar.png";
-
 import { useAppSelector } from "@/store/store";
 
 import axios from "axios";

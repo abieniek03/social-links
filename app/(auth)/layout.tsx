@@ -1,9 +1,10 @@
 import { FC, ReactNode } from "react";
-import { FaHome } from "react-icons/fa";
-import SwitchThemeButton from "@/components/SwitchThemeButton";
 import Link from "next/link";
 
 import AuthRedirector from "@/hoc/AuthRedirector";
+
+import SwitchThemeButton from "@/components/SwitchThemeButton";
+import { FaHome } from "react-icons/fa";
 
 const AuthLayout: FC<{ children: ReactNode }> = ({ children }) => {
 	return (
