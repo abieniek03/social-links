@@ -62,13 +62,16 @@ const Profile = async (request: any) => {
 
 	return (
 		<div>
-			<div className="relative p-10">
-				{isAuthenticated && (
-					<Link href={`/profil/${profileId}/edytuj`} className="absolute top-0 right-0 text-2xl p-2 hover:text-primary">
-						<BiEdit />
-					</Link>
-				)}
-				<div className="max-w-md mx-auto flex flex-col justify-center items-center pb-4 border-b dark:border-dark-hover">
+			<div className="p-10">
+				<div className="relative max-w-md mx-auto flex flex-col justify-center items-center pb-4 border-b dark:border-dark-hover">
+					{isAuthenticated && (
+						<Link
+							href={`/profil/${profileId}/edytuj`}
+							className="absolute top-0 right-0 text-2xl p-2 hover:text-primary"
+						>
+							<BiEdit />
+						</Link>
+					)}
 					<Image src={profileData.avatar} alt="" height={100} width={100} className="rounded-full mb-2" />
 					<span className="text-xl font-bold">{`${profileData.firstName} ${profileData.lastName}`}</span>
 					{profileData.profileDescription && <span>{profileData.profileDescription}</span>}
