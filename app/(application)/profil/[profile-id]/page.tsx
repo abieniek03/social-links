@@ -73,7 +73,7 @@ const Profile = async (request: any) => {
 						</Link>
 					)}
 					<Image src={profileData.avatar} alt="" height={100} width={100} className="rounded-full mb-2" />
-					<span className="text-xl font-bold">{`${profileData.firstName} ${profileData.lastName}`}</span>
+					<h1 className="text-xl font-bold">{`${profileData.firstName} ${profileData.lastName}`}</h1>
 					{profileData.profileDescription && <span>{profileData.profileDescription}</span>}
 				</div>
 			</div>
