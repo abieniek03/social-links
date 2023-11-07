@@ -40,7 +40,7 @@ const EditProfilePage: FC = () => {
 	useEffect(() => {
 		if (authToken) {
 			axios
-				.get("/api/edit", {
+				.get("/api/profile", {
 					headers: {
 						Authorization: `Bearer ${authToken}`,
 					},
@@ -56,7 +56,7 @@ const EditProfilePage: FC = () => {
 	const saveChanges = async (data: IEditProfileForm) => {
 		try {
 			setLoading(true);
-			await axios.put("/api/edit", data, {
+			await axios.put("/api/profile", data, {
 				headers: {
 					Authorization: `Bearer ${authToken}`,
 				},

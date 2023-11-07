@@ -2,6 +2,7 @@
  * @swagger
  * tags:
  *  - name: Auth
+ *  - name: Profile
  * /api/auth/register:
  *   post:
  *     tags:
@@ -94,4 +95,42 @@
  *     responses:
  *       200:
  *         description: User logged out.
+ *
+ * /api/profile:
+ *   get:
+ *     tags:
+ *       - Profile
+ *     summary: Edit user information.
+ *     description: Verify user token and return user information. Requires an authentication token in the request headers (Bearer token).
+ *     responses:
+ *       200:
+ *         description: User information has been updated successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 firstName:
+ *                   type: string
+ *                 lastName:
+ *                   type: string
+ *                 profileDescription:
+ *                   type: string
+ *       400:
+ *         description: Token undefined or invalid.
+ *       500:
+ *         description: Internal server error.
+ *
+ *   put:
+ *     tags:
+ *      - Profile
+ *     summary: Edit user information.
+ *     description: Verify user token and return user information. Requires an authentication token in the request headers (Bearer token).
+ *     responses:
+ *       200:
+ *         description: User information has been updated successfully.
+ *       400:
+ *         description: Token undefined or invalid.
+ *       500:
+ *         description: Internal server error.
  */
