@@ -17,18 +17,19 @@ const FormInput: FC<IFormInput> = ({ type, id, label }) => {
 		name: id,
 	});
 
+	const fieldStyles: string =
+		"bg-light-hover border border-light dark:border-gray-600 dark:bg-dark-hover font-bold text-secondary text-sm rounded-lg outline-none ring-2 ring-transparent focus:ring-primary block w-full p-2.5";
+
 	return (
 		<div className="w-full mb-4">
 			<label htmlFor={id} className="block mb-1 text-sm font-bold text-secondary">
 				{label}
 			</label>
-			<input
-				type={type || "text"}
-				id={id}
-				className="bg-light-hover border border-light dark:border-gray-600 dark:bg-dark-hover font-bold text-secondary text-sm rounded-lg outline-none ring-2 ring-transparent focus:ring-primary block w-full p-2.5"
-				value={field.value}
-				onChange={field.onChange}
-			/>
+			{type === "textarea" ? (
+				<textarea id={id} className={fieldStyles} value={field.value} onChange={field.onChange} />
+			) : (
+				<input type={type || "text"} id={id} className={fieldStyles} value={field.value} onChange={field.onChange} />
+			)}
 			<label className="text-error text-xs font-semibold">{errors[id]?.message?.toString()}</label>
 		</div>
 	);

@@ -10,6 +10,7 @@ interface IUserData {
 
 export interface IUser {
 	verify: boolean;
+	authToken: string | null;
 	user: IUserData | null;
 }
 
