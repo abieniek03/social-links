@@ -15,10 +15,16 @@ import { FormProvider, useForm, Controller } from "react-hook-form";
 import { IEditProfileForm } from "@/validation/edit-profile/types";
 import { editProfileFormSchema } from "@/validation/edit-profile/schema";
 
+import { useAppSelector } from "@/store/store";
+import { IUser } from "@/store/user/types";
+
 import axios from "axios";
 
 const EditProfilePage: FC = () => {
 	const router = useRouter();
+	const user: IUser | null = useAppSelector((store) => store.user.details);
+
+	const authToken = user?.authToken;
 
 	const [loading, setLoading] = useState<boolean>(false);
 	const [userData, setUserData] = useState<IEditProfileForm>({
@@ -32,28 +38,30 @@ const EditProfilePage: FC = () => {
 	});
 
 	useEffect(() => {
-		axios
-			.get("/api/edit", {
-				headers: {
-					Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhmNmIxODg2LTI0ZmUtNGRhYi1hNzRmLWFiNTY2MmI1NTk0MyIsInByb2ZpbGVJZCI6Imphbi5rb3dhbHNraSIsImlhdCI6MTY5ODg1OTA0NiwiZXhwIjoxNzAxNDUxMDQ2fQ.BGnz5P6yC5IPvyizuahD78VfcJCjEC-00T9BKSXsdhk`,
-				},
-			})
-			.then((res) => {
-				setUserData(res.data);
-				form.reset(res.data);
-			})
-			.catch((error) => console.error(error));
-	}, [form]);
+		if (authToken) {
+			axios
+				.get("/api/edit", {
+					headers: {
+						Authorization: `Bearer ${authToken}`,
+					},
+				})
+				.then((res) => {
+					setUserData(res.data);
+					form.reset(res.data);
+				})
+				.catch((error) => console.error(error));
+		}
+	}, [authToken, form]);
 
 	const saveChanges = async (data: IEditProfileForm) => {
 		try {
 			setLoading(true);
 			await axios.put("/api/edit", data, {
 				headers: {
-					Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhmNmIxODg2LTI0ZmUtNGRhYi1hNzRmLWFiNTY2MmI1NTk0MyIsInByb2ZpbGVJZCI6Imphbi5rb3dhbHNraSIsImlhdCI6MTY5ODg1OTA0NiwiZXhwIjoxNzAxNDUxMDQ2fQ.BGnz5P6yC5IPvyizuahD78VfcJCjEC-00T9BKSXsdhk`,
+					Authorization: `Bearer ${authToken}`,
 				},
 			});
-			router.back();
+			window.location.href = `/profil/${user?.user?.profileId}`;
 		} catch (error) {
 			console.log(error);
 		} finally {

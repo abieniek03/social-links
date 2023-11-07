@@ -24,5 +24,5 @@ export const GET = async (request: NextRequest) => {
 		},
 	});
 
-	return NextResponse.json({ verify: verification.verify, user });
+	return NextResponse.json({ verify: verification.verify, authToken, user });
 };
