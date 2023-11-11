@@ -3,7 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 import jwt from "jsonwebtoken";
+
 import { BiErrorCircle, BiEdit } from "react-icons/bi";
+
+import ProfileLink from "@/components/ProfileLink";
+import AddLink from "@/components/AddLink";
 
 import { PrismaClient } from "@prisma/client";
 
@@ -63,18 +67,28 @@ const Profile = async (request: any) => {
 	return (
 		<div>
 			<div className="p-10">
-				<div className="relative max-w-md mx-auto flex flex-col justify-center items-center pb-4 border-b dark:border-dark-hover">
-					{isAuthenticated && (
-						<Link
-							href={`/profil/${profileId}/edytuj`}
-							className="absolute top-0 right-0 text-2xl p-2 hover:text-primary"
-						>
-							<BiEdit />
-						</Link>
-					)}
-					<Image src={profileData.avatar} alt="" height={100} width={100} className="rounded-full mb-2" />
-					<h1 className="text-xl font-bold">{`${profileData.firstName} ${profileData.lastName}`}</h1>
-					{profileData.profileDescription && <span>{profileData.profileDescription}</span>}
+				<div className="relative max-w-md mx-auto">
+					<div className="w-full flex flex-col justify-center items-center pb-4 border-b dark:border-dark-hover">
+						{isAuthenticated && (
+							<Link
+								href={`/profil/${profileId}/edytuj`}
+								className="absolute top-0 right-0 text-2xl p-2 hover:text-primary"
+							>
+								<BiEdit />
+							</Link>
+						)}
+						<Image src={profileData.avatar} alt="" height={100} width={100} className="rounded-full mb-2" />
+						<h1 className="text-xl font-bold">{`${profileData.firstName} ${profileData.lastName}`}</h1>
+						{profileData.profileDescription && <span>{profileData.profileDescription}</span>}
+					</div>
+
+					<div className="flex flex-col justify-center items-center pt-4">
+						<ProfileLink isAuth={isAuthenticated} media="Instagram" />
+						<ProfileLink isAuth={isAuthenticated} media="X" />
+						<ProfileLink isAuth={isAuthenticated} media="LinkedIn" />
+						<hr />
+						<AddLink />
+					</div>
 				</div>
 			</div>
 		</div>
