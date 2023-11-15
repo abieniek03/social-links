@@ -1,7 +1,9 @@
 import * as z from "zod";
 
+import { editMessages } from "../links/editMessages";
+
 export const editProfileFormSchema = z.object({
-	firstName: z.string(),
-	lastName: z.string(),
+	firstName: z.string({ required_error: editMessages.required }).min(3, editMessages.min),
+	lastName: z.string({ required_error: editMessages.required }).min(2, editMessages.min),
 	profileDescription: z.string(),
 });

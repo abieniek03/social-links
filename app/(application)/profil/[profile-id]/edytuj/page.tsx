@@ -35,6 +35,8 @@ const EditProfilePage: FC = () => {
 
 	const form = useForm<IEditProfileForm>({
 		resolver: zodResolver(editProfileFormSchema),
+		mode: "onSubmit",
+		reValidateMode: "onChange",
 	});
 
 	useEffect(() => {

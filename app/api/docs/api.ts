@@ -3,6 +3,7 @@
  * tags:
  *  - name: Auth
  *  - name: Profile
+ *  - name: Link
  * /api/auth/register:
  *   post:
  *     tags:
@@ -133,4 +134,101 @@
  *         description: Token undefined or invalid.
  *       500:
  *         description: Internal server error.
+ *
+ * /api/link:
+ *   post:
+ *     tags:
+ *      - Link
+ *     summary: Add a link to user profile.
+ *     description: Add a link to user profile. Requires an authentication token in the request headers (Bearer token).
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               media:
+ *                 type: string
+ *               username:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Link added to the user profile.
+ *       401:
+ *         description: Auth token is required.
+ *       409:
+ *         description: Selected link already exists in the user's profile.
+ *
+ * /api/link/{id}:
+ *   patch:
+ *     tags:
+ *       - Link
+ *     summary: Update a link in the user profile.
+ *     description: Update a link in the user profile based on the provided link ID. Requires an authentication token in the request headers (Bearer token).
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         description: ID of the link to be updated.
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               username:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Link updated successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   description: Indicates whether the update was successful.
+ *                 message:
+ *                   type: string
+ *                   description: A message confirming the update.
+ *       401:
+ *         description: User unauthorized. Auth token is required.
+ *       404:
+ *         description: Link with the specified ID not found.
+ *
+ *   delete:
+ *     tags:
+ *       - Link
+ *     summary: Delete a link from the user profile.
+ *     description: Delete a link from the user profile based on the provided link ID. Requires an authentication token in the request headers (Bearer token).
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         description: ID of the link to be deleted.
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Link deleted successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   description: Indicates whether the deletion was successful.
+ *                 message:
+ *                   type: string
+ *                   description: A message confirming the deletion.
+ *       401:
+ *         description: Auth token is required.
+ *       404:
+ *         description: Link with the specified ID not found.
  */
