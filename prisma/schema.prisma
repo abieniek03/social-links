@@ -29,6 +29,20 @@ model User {
   avatar             String         @default("https://i.imgur.com/HJGHL1q.jpg")
   createdAt          DateTime       @default(now())
   updatedAt          DateTime       @updatedAt
+  links              Link[]
 
   @@map("users")
+}
+
+model Link {
+  id        String   @id @unique @default(uuid())
+  media     String
+  url       String
+  username  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  profileId String
+  user      User     @relation(fields: [profileId], references: [profileId])
+
+  @@map("links")
 }

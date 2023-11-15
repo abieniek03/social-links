@@ -1,3 +1,3 @@
 export interface IEditLinkForm {
-	name: string;
+	username: string;
 }

@@ -4,9 +4,10 @@ import { useFormContext, useController } from "react-hook-form";
 interface IEditInput {
 	id: string;
 	placeholder: string;
+	username?: string;
 }
 
-const EditInput: FC<IEditInput> = ({ id, placeholder }) => {
+const EditInput: FC<IEditInput> = ({ id, placeholder, username }) => {
 	const {
 		control,
 		formState: { errors },
@@ -14,6 +15,7 @@ const EditInput: FC<IEditInput> = ({ id, placeholder }) => {
 	const { field } = useController({
 		control,
 		name: id,
+		defaultValue: username,
 	});
 
 	return (
@@ -25,8 +27,9 @@ const EditInput: FC<IEditInput> = ({ id, placeholder }) => {
 				placeholder={placeholder}
 				value={field.value}
 				onChange={field.onChange}
+				required
 			/>
-			<label className="text-error text-xs font-semibold">{errors[id]?.message?.toString()}</label>
+			<span className="text-error text-xs font-semibold">{errors[id]?.message?.toString()}</span>
 		</div>
 	);
 };

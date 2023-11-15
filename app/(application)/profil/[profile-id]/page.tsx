@@ -13,11 +13,17 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+interface ILink {
+	id: string;
+	media: string;
+	username: string;
+}
 interface IProfileData {
 	avatar: string;
 	firstName: string;
 	lastName: string;
 	profileDescription: string;
+	links: ILink[];
 }
 
 const getProfileData = async (profileId: string) => {
@@ -31,6 +37,7 @@ const getProfileData = async (profileId: string) => {
 				firstName: true,
 				lastName: true,
 				profileDescription: true,
+				links: { select: { id: true, media: true, username: true } },
 			},
 		});
 
@@ -43,7 +50,7 @@ const getProfileData = async (profileId: string) => {
 const Profile = async (request: any) => {
 	const cookieStore = cookies();
 	const profileId = request.params["profile-id"];
-	let isAuthenticated;
+	let isAuthenticated: any;
 
 	const profileData: IProfileData | null = await getProfileData(profileId);
 
@@ -83,9 +90,10 @@ const Profile = async (request: any) => {
 					</div>
 
 					<div className="flex flex-col justify-center items-center pt-4">
-						<ProfileLink isAuth={isAuthenticated} media="Instagram" />
-						<ProfileLink isAuth={isAuthenticated} media="X" />
-						<ProfileLink isAuth={isAuthenticated} media="LinkedIn" />
+						{profileData.links.map((el, index) => (
+							<ProfileLink key={index} isAuth={isAuthenticated} id={el.id} media={el.media} username={el.username} />
+						))}
+
 						<hr />
 						<AddLink />
 					</div>
