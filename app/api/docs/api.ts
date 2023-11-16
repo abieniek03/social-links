@@ -4,6 +4,7 @@
  *  - name: Auth
  *  - name: Profile
  *  - name: Link
+ *  - name: Search
  * /api/auth/register:
  *   post:
  *     tags:
@@ -231,4 +232,58 @@
  *         description: Auth token is required.
  *       404:
  *         description: Link with the specified ID not found.
+ *
+ * api/search/{searchValue}?limit={limitValue}:
+ *  get:
+ *    tags:
+ *      - Search
+ *    summary: Search users.
+ *    description: Search users by first name or last name. Optionally limit the number of results.
+ *    parameters:
+ *      - name: searchValue
+ *        in: path
+ *        description: The value to search for.
+ *        required: true
+ *        schema:
+ *          type: string
+ *      - name: limitValue
+ *        in: query
+ *        description: The maximum number of results to return (optional).
+ *        required: false
+ *        schema:
+ *          type: integer
+ *    responses:
+ *      200:
+ *        description: Users found successfully.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                success:
+ *                  type: boolean
+ *                  description: Indicates whether the search was successful.
+ *                searchValue:
+ *                  type: string
+ *                  description: The value used for the search.
+ *                result:
+ *                  type: array
+ *                  items:
+ *                    type: object
+ *                    properties:
+ *                      firstName:
+ *                        type: string
+ *                      lastName:
+ *                        type: string
+ *                      avatar:
+ *                        type: string
+ *                      profileId:
+ *                        type: string
+ *                      profileDescription:
+ *                        type: string
+ *              description: The array of users matching the search criteria.
+ *      404:
+ *        description: Users not found.
+ *      500:
+ *        description: Internal server error.
  */
