@@ -16,6 +16,7 @@ const config: Config = {
 				dark: "#1f2937",
 				"dark-hover": "#2f3a48",
 				error: "#f87171",
+				overlay: "#000000aa",
 			},
 		},
 	},
