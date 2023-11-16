@@ -40,7 +40,6 @@ const AccountButton: FC = () => {
 										{user.firstName} {user.lastName}
 									</span>
 								</Link>
-								<Button path="/ustawienia" variant="secondary" size="sm" label="Ustawienia" />
 								<Button variant="primary" size="sm" label="Wyloguj się" onClick={handleLogout} />
 							</>
 						) : (
