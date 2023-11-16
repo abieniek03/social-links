@@ -9,7 +9,7 @@ https://social-links-phi.vercel.app/
 ## Technologie
 
 **Stylowanie:** TailwindCSS \
-**Pozostałe:** Next.js React, Redux, React Hook Form, Zod, Prisma, PostgreSQL, REST API
+**Pozostałe:** Next.js React, Redux, React Hook Form, Zod, Prisma, PostgreSQL, REST API, JWT
 
 ## Funkcjonalności
 
