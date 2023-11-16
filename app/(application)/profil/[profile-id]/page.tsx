@@ -95,7 +95,7 @@ const Profile = async (request: any) => {
 						))}
 
 						<hr />
-						<AddLink />
+						{isAuthenticated && <AddLink />}
 					</div>
 				</div>
 			</div>

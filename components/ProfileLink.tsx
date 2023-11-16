@@ -158,9 +158,11 @@ const ProfileLink: FC<IProfileLink> = ({ isAuth, id, media, username }) => {
 	}
 
 	return (
-		<a href="/elo">
-			<span>{media}</span>
-		</a>
+		<div className="flex flex-col gap-3">
+			<a href={`https://${media.toLocaleLowerCase()}.com`} target="_blank" className="font-bold text-xl">
+				<span>{media}</span>
+			</a>
+		</div>
 	);
 };
 
