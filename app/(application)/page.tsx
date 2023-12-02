@@ -1,13 +1,21 @@
 import { FC } from "react";
+import Image from "next/image";
+import headerImage from "@/assets/images/header.jpg";
+
+import Button from "@/components/Button";
 
 const Home: FC = () => {
 	return (
 		<>
-			<header className="my-24 font-bold text-center uppercase">
-				<h1 className="text-4xl md:text-5xl lg:text-6xl">
-					Łatwy i szybki <span className="text-primary">dostęp</span>
-				</h1>
-				<p className="text-2xl">do&nbsp;mediów społecznościowych.</p>
+			<header className="relative my-24 font-bold flex flex-col justify-center items-center gap-3 md:flex-row md:justify-between">
+				<div className="relative mb-6 md:mb-0 before:absolute before:bg-primary before:h-2 before:w-full before:rounded-lg before:-bottom-5  ">
+					<h1 className="mb-1 text-center text-4xl md:text-left md:text-5xl lg:text-6xl">
+						Łatwy i szybki <span className="text-primary">dostęp</span>
+					</h1>
+					<p className="text-2xl">do&nbsp;mediów społecznościowych.</p>
+				</div>
+
+				<Image src={headerImage} alt="" width={350} className="rounded-lg" />
 			</header>
 
 			<footer className="absolute w-full bottom-0 left-0 text-neutral-300 dark:text-slate-500">
