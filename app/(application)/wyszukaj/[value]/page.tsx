@@ -4,10 +4,11 @@ import { FC, useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
+import Loading from "@/components/Loading";
+
 import { IResult } from "@/components/NavbarSearch";
 
 import axios from "axios";
-import Loading from "@/components/Loading";
 
 const SearchResultPage: FC = () => {
 	const [loading, setLoading] = useState<boolean>(false);
@@ -15,6 +16,7 @@ const SearchResultPage: FC = () => {
 	const [searchResponse, setSearchResponse] = useState<IResult[]>();
 
 	const searchValue = usePathname().split("wyszukaj/")[1];
+
 	useEffect(() => {
 		setLoading(true);
 		axios
