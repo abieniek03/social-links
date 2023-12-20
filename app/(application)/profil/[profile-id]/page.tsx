@@ -89,7 +89,7 @@ const Profile = async (request: any) => {
 						{profileData.profileDescription && <span>{profileData.profileDescription}</span>}
 					</div>
 
-					<div className="flex flex-col justify-center items-center pt-4">
+					<div className="flex flex-col justify-center items-center gap-2.5 pt-4">
 						{profileData.links.map((el, index) => (
 							<ProfileLink key={index} isAuth={isAuthenticated} id={el.id} media={el.media} username={el.username} />
 						))}
