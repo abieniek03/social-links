@@ -29,7 +29,7 @@ const NavbarSearch: FC = () => {
 	useEffect(() => {
 		if (searchValue !== "") {
 			axios
-				.get(`/api/search/${searchValue}`)
+				.get(`/api/search/${searchValue}?limit=4`)
 				.then((res) => setSearchResponse(res.data.result))
 				.catch((error) => console.log(error));
 		}
