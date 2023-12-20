@@ -5,9 +5,9 @@ Portal umożliwiający stworzenie profilu na którym znajdują się linki do pro
 ## Zobacz projekt
 
 https://social-links-phi.vercel.app/
-Aby sprawdzić funkcjonalności zaloguj się na konto testowe
-email: test@test.pl
-hasło: !Test1
+Aby sprawdzić funkcjonalności zaloguj się na konto testowe \
+email: test@test.pl \
+hasło: !Test1 \
 
 ## Technologie
 
