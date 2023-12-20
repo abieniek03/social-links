@@ -7,6 +7,7 @@ const prisma = new PrismaClient();
 export const GET = async (request: NextRequest) => {
 	const url = await request.url.split("search/")[1].split("?limit=");
 	const searchValue = url[0];
+	const profileIdSearchValue = `${searchValue.split("%20")[0]}.${searchValue.split("%20")[1]}`;
 	const limitValue = Number(url[1]);
 
 	try {
@@ -17,8 +18,14 @@ export const GET = async (request: NextRequest) => {
 		const result = await prisma.user.findMany({
 			where: {
 				OR: [
-					{ firstName: { contains: searchValue, mode: "insensitive" } },
-					{ lastName: { contains: searchValue, mode: "insensitive" } },
+					{
+						profileId: {
+							startsWith: profileIdSearchValue.toLowerCase(),
+							mode: "insensitive",
+						},
+					},
+					{ firstName: { startsWith: searchValue, mode: "insensitive" } },
+					{ lastName: { startsWith: searchValue, mode: "insensitive" } },
 				],
 			},
 			select: {
