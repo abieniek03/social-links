@@ -158,11 +158,9 @@ const ProfileLink: FC<IProfileLink> = ({ isAuth, id, media, username }) => {
 	}
 
 	return (
-		<div className="flex flex-col gap-3">
-			<a href={`https://${media.toLocaleLowerCase()}.com`} target="_blank" className="font-bold text-xl">
-				<span>{media}</span>
-			</a>
-		</div>
+		<a href={`https://${media.toLocaleLowerCase()}.com`} target="_blank" className="font-bold text-xl w-3/4">
+			<span className={`block bg-${media.toLowerCase()} text-center rounded-sm py-1`}>{media}</span>
+		</a>
 	);
 };
 

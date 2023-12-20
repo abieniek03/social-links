@@ -2,8 +2,6 @@ import { FC } from "react";
 import Image from "next/image";
 import headerImage from "@/assets/images/header.jpg";
 
-import Button from "@/components/Button";
-
 const Home: FC = () => {
 	return (
 		<>
