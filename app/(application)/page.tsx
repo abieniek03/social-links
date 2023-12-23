@@ -5,7 +5,7 @@ import headerImage from "@/assets/images/header.jpg";
 const Home: FC = () => {
 	return (
 		<>
-			<header className="relative my-24 font-bold flex flex-col justify-center items-center gap-3 md:flex-row md:justify-between">
+			<header className="relative min-h-[85vh] font-bold flex flex-col justify-center items-center gap-3 md:flex-row md:justify-between">
 				<div className="relative mb-6 md:mb-0 before:absolute before:bg-primary before:h-2 before:w-full before:rounded-lg before:-bottom-5  ">
 					<h1 className="mb-1 text-center text-4xl md:text-left md:text-5xl lg:text-6xl">
 						Łatwy i szybki <span className="text-primary">dostęp</span>
