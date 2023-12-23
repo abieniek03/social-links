@@ -16,9 +16,14 @@ https://social-links-phi.vercel.app/
 - REST API do komunikacji interfejsu użytkownika z bazą danych.
 - Autoryzacja za pomocą mechanizmu JSON Web Token.
 - Jasny/ciemny motyw kolorów.
-- Stworzenie i edycja konta.
+- Stworzenie konta.
+- Edycja profilu (zmiana imienia, nazwiska i opisu).
 - Dodanie linku do profilu.
 - Wyszukiwarka użytkowników.
+
+## Działanie wyszukiwarki
+![Sequence 01_2](https://github.com/abieniek03/social-links/assets/106828687/34e188e6-27ea-41aa-87e6-df199746161d)
+![Sequence 01_4](https://github.com/abieniek03/social-links/assets/106828687/2e011f6d-adda-485a-a414-363886583c43)
 
 ## Autor
 
