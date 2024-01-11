@@ -1,30 +1,30 @@
 # Social Links
 
-Portal umożliwiający stworzenie profilu na którym znajdują się linki do profili w najpopularniejszych social mediach.
+A portal enabling the creation of a profile that includes links to profiles on the most popular social media platforms.
 
-## Zobacz projekt
+## Check out the project
 
-https://social-links-phi.vercel.app/
+[https://social-links-phi.vercel.app/](https://social-links-phi.vercel.app/)
 
-## Technologie
+## Technologies
 
-**Stylowanie:** TailwindCSS \
-**Pozostałe:** Next.js, React, Redux, React Hook Form, Zod, Prisma, PostgreSQL, REST API, JWT
+**Styling:** TailwindCSS \
+**Others:** Next.js, React, Redux, React Hook Form, Zod, Prisma, PostgreSQL, REST API, JWT
 
-## Funkcjonalności
+## Features
 
-- REST API do komunikacji interfejsu użytkownika z bazą danych.
-- Autoryzacja za pomocą mechanizmu JSON Web Token.
-- Jasny/ciemny motyw kolorów.
-- Stworzenie konta.
-- Edycja profilu (zmiana imienia, nazwiska i opisu).
-- Dodanie linku do profilu.
-- Wyszukiwarka użytkowników.
+- REST API for communication between the user interface and the database.
+- Authorization using JSON Web Token mechanism.
+- Light/dark color theme.
+- Account creation.
+- Profile editing (changing name, surname, and description).
+- Adding a link to the profile.
+- User search functionality.
 
-## Działanie wyszukiwarki
+## Search Functionality Operation
 ![Sequence 01_2](https://github.com/abieniek03/social-links/assets/106828687/34e188e6-27ea-41aa-87e6-df199746161d)
 ![Sequence 01_4](https://github.com/abieniek03/social-links/assets/106828687/2e011f6d-adda-485a-a414-363886583c43)
 
-## Autor
+## Author
 
 - [@abieniek03](https://www.github.com/abieniek03)
